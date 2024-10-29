@@ -2,6 +2,7 @@ import random
 import re
 import datetime
 import time
+import os
 
 import requests
 
@@ -12,7 +13,7 @@ import lxml
 
 from tqdm import tqdm
 
-conn = sqlite3.connect('/Users/anthonydang/Documents/projects/rapmetrics/spotify_scraper/monthly_listeners.db')
+conn = sqlite3.connect(os.path.join("src/monthly_listeners_scraper", "monthly_listeners.db"))
 c = conn.cursor()
 
 c.execute('''CREATE TABLE IF NOT EXISTS streams(date DATE, artist TEXT, monthly_listeners INT)''')

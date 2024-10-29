@@ -1,3 +1,6 @@
+## Description
+[Rapmetrics](https://www.instagram.com/rapmetrics/) is an Instagram account that visualizes rap data. This repo contains the code on how the data is obtained and stored.
+
 ## Installation
 
 Clone the repository:
@@ -16,3 +19,11 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
+## Environment Variables
+
+This project requires some environment variables for API keys and database connections. 
+
+Create a `.env` file in the root directory after filling out `template.env`:
+   ```bash
+   cp template.env .env
