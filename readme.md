@@ -24,6 +24,6 @@ pip install -r requirements.txt
 
 This project requires some environment variables for API keys and database connections. 
 
-Create a `.env` file in the root directory after filling out `template.env`:
+Create a `.env` file in the monthly_listeners_scraper directory after filling out `template.env`:
    ```bash
-   cp template.env .env
+   cp template.env src/monthy_listeners_scraper/.env

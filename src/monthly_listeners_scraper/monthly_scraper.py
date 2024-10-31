@@ -3,6 +3,7 @@ import re
 import datetime
 import time
 import os
+from dotenv import load_dotenv
 
 import requests
 
@@ -13,7 +14,9 @@ import lxml
 
 from tqdm import tqdm
 
-conn = sqlite3.connect(os.path.join("src/monthly_listeners_scraper", "monthly_listeners.db"))
+load_dotenv()
+db_path = os.getenv("DB_PATH", "src/monthly_listeners_scraper/monthly_listeners.db")  # Default for local testing
+conn = sqlite3.connect(db_path)
 c = conn.cursor()
 
 c.execute('''CREATE TABLE IF NOT EXISTS streams(date DATE, artist TEXT, monthly_listeners INT)''')
