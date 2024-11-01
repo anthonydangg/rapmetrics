@@ -77,8 +77,7 @@ future = 'https://open.spotify.com/artist/1RyvyyTE3xzB2ZywiAwp0i'
 tyler = 'https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF'
 lil_uzi = 'https://open.spotify.com/artist/4O15NlyKLIASxsJ0PrXPfz'
 
-# artists = [kendrick, asap_rocky, weeknd, travis_scott, future, tyler, lil_uzi]
-artists = [tyler, lil_uzi]
+artists = [kendrick, asap_rocky, weeknd, travis_scott, future, tyler, lil_uzi]
 get_listeners(artists)
 
 
