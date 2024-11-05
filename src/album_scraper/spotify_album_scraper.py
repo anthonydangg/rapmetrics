@@ -37,24 +37,28 @@ def get_metadata():
     artist_name = match.group(1)
     return [album_name, artist_name]
 
-# Finds title tracks and streams
-track_elements = driver.find_elements(By.CSS_SELECTOR, 'a[data-testid="internal-track-link"]')
-track_links = [track.get_attribute('href') for track in track_elements]
+def selenium_scraper(): 
+    track_elements = driver.find_elements(By.CSS_SELECTOR, 'a[data-testid="internal-track-link"]')
+    track_links = [track.get_attribute('href') for track in track_elements]
 
-track_streams = {}
-name = []
-plays = []
+    track_streams = {}
+    name = []
+    plays = []
 
-for link in track_links:
-    driver.get(link)
-    time.sleep(5)
+    for link in track_links:
+        driver.get(link)
+        time.sleep(5)
 
-    name.append(driver.find_element(By.CSS_SELECTOR, 'h1[data-encore-id="text"]').text)
-    plays.append(driver.find_element(By.CSS_SELECTOR, 'span[data-testid="playcount"]').text)
-    
-track_streams['Name'] = name
-track_streams['Plays'] = plays
-print(track_streams)
+        name.append(driver.find_element(By.CSS_SELECTOR, 'h1[data-encore-id="text"]').text)
+        plays.append(driver.find_element(By.CSS_SELECTOR, 'span[data-testid="playcount"]').text)
+        
+    track_streams['Name'] = name
+    track_streams['Plays'] = plays
+    print(track_streams)
+    return track_streams, name
+
+track_streams,name = selenium_scraper()
+driver.quit()
 
 current_dir = Path(__file__).parent
 filename = f'{get_metadata()[0]}_{get_metadata()[1]}_data.csv'
