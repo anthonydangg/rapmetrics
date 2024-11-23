@@ -4,6 +4,7 @@ import datetime
 import time
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
 import requests
 
@@ -14,7 +15,8 @@ import lxml
 
 from tqdm import tqdm
 
-load_dotenv()
+env_path = Path(__file__).parents[2] / ".env"
+load_dotenv(dotenv_path=env_path)
 db_path = os.getenv("DB_PATH", "src/monthly_listeners_scraper/monthly_listeners.db")  # Default for local testing
 conn = sqlite3.connect(db_path)
 c = conn.cursor()
@@ -75,14 +77,14 @@ weeknd = 'https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ'
 travis_scott = 'https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY'
 future = 'https://open.spotify.com/artist/1RyvyyTE3xzB2ZywiAwp0i'
 tyler = 'https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF'
-lil_uzi = 'https://open.spotify.com/artist/4O15NlyKLIASxsJ0PrXPfz'
+mac = 'https://open.spotify.com/artist/4LLpKhyESsyAXpc4laK94U'
 
-artists = [kendrick, asap_rocky, weeknd, travis_scott, future, tyler, lil_uzi]
+artists = [kendrick, asap_rocky, weeknd, travis_scott, future, tyler, mac]
 get_listeners(artists)
 
 
 conn.close()
 
-current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+current_time = datetime.datetime.now().strftime('%Y-%m-%d %I:%M:%S %p')
 print('Completed at ' + current_time)
 

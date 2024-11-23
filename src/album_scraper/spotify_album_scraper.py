@@ -60,9 +60,9 @@ def selenium_scraper():
 track_streams,name = selenium_scraper()
 driver.quit()
 
-current_dir = Path(__file__).parent
+current_dir = Path(__file__).parent 
 filename = f'{get_metadata()[0]}_{get_metadata()[1]}_data.csv'
-file_path = current_dir / filename  
+file_path = current_dir / "csv" / filename  
 
 with open(file_path, 'w', newline='') as f:
     writer = csv.writer(f)

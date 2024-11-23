@@ -36,13 +36,6 @@ headers = {
             ])
         }
 
-load_dotenv('.env')
-client_id: str = os.getenv('CLIENT_ID')
-client_secret: str = os.getenv('CLIENT_SECRET')
-auth_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
-sp = spotipy.Spotify(auth_manager=auth_manager)
-
-
 conn = sqlite3.connect(os.path.join("src/top_10_songs_scraper", f"{artist_name}.db"))
 c = conn.cursor()
 
