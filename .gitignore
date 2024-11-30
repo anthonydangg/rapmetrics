@@ -178,3 +178,6 @@ pyrightconfig.json
 *.db
 *.DS_Store
 *.csv
+
+# video
+*.mp4
