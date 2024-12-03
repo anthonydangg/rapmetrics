@@ -1,6 +1,9 @@
 ## Description
 [Rapmetrics](https://www.instagram.com/rapmetrics/) is an Instagram account that visualizes rap data. This repo contains the code on how the data is obtained and stored.
 
+<img src="assets/etl.jpg" alt="etl diagram">
+
+
 ## Installation
 
 Clone the repository:
